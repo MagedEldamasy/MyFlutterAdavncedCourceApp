@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:test_flutter_app1/core/routing/app_router.dart';
 import 'package:test_flutter_app1/doc_app.dart';
 
 void main() {
+  // Make status bar white with dark icons
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.white, // background color
+      statusBarIconBrightness: Brightness.dark, // icon color
+      statusBarBrightness: Brightness.light, // for iOS
+    ),
+  );
   runApp(DocApp(appRouter: AppRouter()));
 }
 
