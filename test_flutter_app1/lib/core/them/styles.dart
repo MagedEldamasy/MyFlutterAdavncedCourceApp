@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_flutter_app1/core/them/colors.dart';
 import 'package:test_flutter_app1/core/them/font_weight_helper.dart';
