@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_flutter_app1/core/helpers/extensions.dart';
 import 'package:test_flutter_app1/core/routing/routes.dart';
-import 'package:test_flutter_app1/core/them/colors.dart';
 import 'package:test_flutter_app1/core/them/styles.dart';
 import 'package:test_flutter_app1/core/widgets/app_text_button.dart';
 import 'package:test_flutter_app1/features/onBording/ui/widgets/doctor_image_and_text.dart';
@@ -23,7 +22,6 @@ class OnboardingScreen extends StatelessWidget {
                 OnborardingToolBar(),
                 SizedBox(height: 30.h),
                 DoctorImageAndText(),
-
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.h),
                   child: Column(
