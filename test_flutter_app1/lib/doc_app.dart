@@ -17,6 +17,7 @@ class DocApp extends StatelessWidget {
         title: "flutter doc app",
         theme: ThemeData(
           primaryColor: ColorsManager.mainBlue,
+        
           scaffoldBackgroundColor: Colors.white,
         ),
         debugShowCheckedModeBanner: false,
