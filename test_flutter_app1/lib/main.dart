@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_flutter_app1/core/di/dependency_injection.dart';
 import 'package:test_flutter_app1/core/routing/app_router.dart';
 import 'package:test_flutter_app1/doc_app.dart';
 
-void main() {
+void main() async {
   // Make status bar white with dark icons
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -12,6 +14,10 @@ void main() {
       statusBarBrightness: Brightness.light, // for iOS
     ),
   );
+   WidgetsFlutterBinding.ensureInitialized();
+  setupGetIt();
+  // To fix texts being hidden bug in flutter_screenutil in release mode.
+  await ScreenUtil.ensureScreenSize();
   runApp(DocApp(appRouter: AppRouter()));
 }
 

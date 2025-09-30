@@ -1,0 +1,33 @@
+
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:test_flutter_app1/core/helpers/extensions.dart';
+import 'package:test_flutter_app1/core/routing/routes.dart';
+import 'package:test_flutter_app1/core/them/styles.dart';
+
+ class HaveAccountText extends StatelessWidget {
+  const HaveAccountText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: 'Already have an account?',
+            style: AppTextStyles.font13DarkBlueRegular,
+          ),
+          TextSpan(
+            text: ' Login',
+            style: AppTextStyles.font13BlueSemiBold,
+            recognizer: TapGestureRecognizer()..onTap = () {
+                context.pop();
+              },
+            // Add gesture recognizer or onTap functionality if needed
+          ),
+        ],
+      ),
+    );
+  }
+}

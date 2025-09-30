@@ -29,14 +29,14 @@ class OnboardingScreen extends StatelessWidget {
                       Text(
                         "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
                         textAlign: TextAlign.center,
-                        style: TextStyles.font13GrayRegular,
+                        style: AppTextStyles.font13GrayRegular,
                       ),
                       SizedBox(height: 30.h),
                       AppTextButton(
                         buttonText: "Get Started",
-                        textStyle: TextStyles.font16WhiteRegular,
+                        textStyle: AppTextStyles.font16WhiteRegular,
                         onPressed: () {
-                          var map = Map<String, dynamic>();
+                          var map = <String, dynamic>{};
                           map["isFromOnboarding"] = true;
                           map["id"] = 1;
                           map["name"] = "test";
