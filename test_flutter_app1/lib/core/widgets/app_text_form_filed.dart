@@ -12,7 +12,11 @@ class AppTextFormField extends StatelessWidget {
   final String hintText;
   final bool? isObscureText;
   final Widget? suffixIcon;
+  final Widget? perfixIcon;
   final Color? backgroundColor;
+  final Function(String?) validator;
+  final TextEditingController? controller;
+final TextInputType? keyboardType;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -23,13 +27,19 @@ class AppTextFormField extends StatelessWidget {
     required this.hintText,
     this.isObscureText,
     this.suffixIcon,
+    this.perfixIcon,
     this.backgroundColor,
+    required this.validator,
+    this.controller,
+    this.keyboardType
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       cursorColor: ColorsManager.mainBlue,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         //to reomve all  defalt padding
         isDense: true,
@@ -51,16 +61,27 @@ class AppTextFormField extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(16),
             ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 1.2),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 1.2),
+          borderRadius: BorderRadius.circular(16),
+        ),
         hintStyle: hintStyle ?? AppTextStyles.font14LightGrayRegular,
         hintText: hintText,
         suffixIcon: suffixIcon,
-        fillColor: backgroundColor?? ColorsManager.moreLighterGray,
-        filled: true
-        
+        prefixIcon: perfixIcon,
+        prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
+        fillColor: backgroundColor ?? ColorsManager.moreLighterGray,
+        filled: true,
       ),
       obscureText: isObscureText ?? false,
       style: AppTextStyles.font14BlackRegular,
-      
+      validator: (value) {
+        return validator(value);
+      },
     );
   }
 }
